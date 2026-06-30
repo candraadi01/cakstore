@@ -1,15 +1,15 @@
 # CAKSTORE Landing Page
 
-Landing page React + Vite + Tailwind CSS untuk CAKSTORE.
+Landing page React + Vite untuk CAKSTORE dengan desain mobile-first, tema pink/coral/emas, tombol WhatsApp, daftar produk premium, dan carousel metode pembayaran.
 
-## Isi update
+## Fitur
 
-- Nomor WhatsApp: `6281455124049`
-- Logo CAKSTORE sudah dimasukkan
-- Warna disesuaikan dengan logo: pink muda, coral, dan kuning emas
 - Mobile-first untuk link bio TikTok
-- Tombol WhatsApp di hero, produk, CTA, dan tombol bawah mengambang
-- Card produk sudah memakai logo aplikasi lokal berbentuk SVG
+- Nomor WhatsApp: `6281455124049`
+- Produk dengan logo aplikasi: Netflix, Vidio, Viu, Prime Video, Canva, Spotify, YouTube, CapCut, Disney+ Hotstar, WeTV, iQIYI, Bstation
+- Section metode pembayaran geser kanan/kiri: QRIS, DANA, GoPay, OVO, ShopeePay, BRI, BCA
+- Logo metode pembayaran memakai file resmi/Commons yang sudah disimpan di project + fallback lokal jika render bermasalah
+- Tombol WhatsApp otomatis di hero, produk, CTA, dan sticky bottom
 - `.gitignore` sudah disiapkan agar `node_modules`, `dist`, dan `.vercel` tidak ikut ke GitHub
 
 ## Cara menjalankan
@@ -19,22 +19,27 @@ npm install
 npm run dev
 ```
 
-Buka:
+Buka alamat lokal yang muncul, biasanya:
 
 ```txt
 http://localhost:5173
 ```
 
-## Cara deploy/update ke GitHub dan Vercel
+## Cara update ke GitHub + Vercel
 
 ```bash
 git add .
-git commit -m "Update branding CAKSTORE"
+git commit -m "Update official payment logos CAKSTORE"
 git push
 ```
 
-Jika repository sudah terhubung ke Vercel, deploy akan berjalan otomatis.
+Vercel akan deploy otomatis jika repository GitHub sudah tersambung.
 
-## Catatan logo brand
+## Catatan brand
 
-Logo/merek dagang aplikasi merupakan milik pemilik brand masing-masing. Gunakan brand asset resmi jika diperlukan untuk penggunaan komersial.
+Logo/ikon aplikasi dan metode pembayaran di project ini dipakai sebagai representasi visual agar customer mudah mengenali layanan. Semua merek dagang tetap milik pemilik masing-masing brand. CAKSTORE bukan bagian dari brand tersebut.
+
+
+## Sumber logo pembayaran
+
+Detail sumber logo pembayaran ada di file `PAYMENT_LOGO_SOURCES.md`.

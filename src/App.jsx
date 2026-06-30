@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import logoCakstore from './assets/logo-cakstore.jpg'
 
 import netflixLogo from './assets/brands/netflix.svg'
@@ -12,6 +13,22 @@ import disneyHotstarLogo from './assets/brands/disney-hotstar.svg'
 import wetvLogo from './assets/brands/wetv.svg'
 import iqiyiLogo from './assets/brands/iqiyi.svg'
 import bstationLogo from './assets/brands/bstation.svg'
+
+import qrisFallbackLogo from './assets/payments/qris.svg'
+import danaFallbackLogo from './assets/payments/dana.svg'
+import gopayFallbackLogo from './assets/payments/gopay.svg'
+import ovoFallbackLogo from './assets/payments/ovo.svg'
+import shopeepayFallbackLogo from './assets/payments/shopeepay.svg'
+import briFallbackLogo from './assets/payments/bri.svg'
+import bcaFallbackLogo from './assets/payments/bca.svg'
+import qrisOfficialLogo from './assets/payments-official/qris.webp'
+import danaOfficialLogo from './assets/payments-official/dana.webp'
+import gopayOfficialLogo from './assets/payments-official/gopay.webp'
+import ovoOfficialLogo from './assets/payments-official/ovo.webp'
+import shopeepayOfficialLogo from './assets/payments-official/shopeepay.svg'
+import briOfficialLogo from './assets/payments-official/bri.webp'
+import bcaOfficialLogo from './assets/payments-official/bca.webp'
+
 
 const whatsappNumber = '6281455124049'
 
@@ -102,6 +119,51 @@ const products = [
   },
 ]
 
+const paymentMethods = [
+  {
+    name: 'QRIS',
+    desc: 'Scan semua e-wallet',
+    logo: qrisOfficialLogo,
+    fallbackLogo: qrisFallbackLogo,
+  },
+  {
+    name: 'DANA',
+    desc: 'E-wallet',
+    logo: danaOfficialLogo,
+    fallbackLogo: danaFallbackLogo,
+  },
+  {
+    name: 'GoPay',
+    desc: 'E-wallet',
+    logo: gopayOfficialLogo,
+    fallbackLogo: gopayFallbackLogo,
+  },
+  {
+    name: 'OVO',
+    desc: 'E-wallet',
+    logo: ovoOfficialLogo,
+    fallbackLogo: ovoFallbackLogo,
+  },
+  {
+    name: 'ShopeePay',
+    desc: 'E-wallet',
+    logo: shopeepayOfficialLogo,
+    fallbackLogo: shopeepayFallbackLogo,
+  },
+  {
+    name: 'BRI',
+    desc: 'Transfer bank',
+    logo: briOfficialLogo,
+    fallbackLogo: briFallbackLogo,
+  },
+  {
+    name: 'BCA',
+    desc: 'Transfer bank',
+    logo: bcaOfficialLogo,
+    fallbackLogo: bcaFallbackLogo,
+  },
+]
+
 const faqs = [
   {
     question: 'Cara ordernya gimana?',
@@ -117,7 +179,7 @@ const faqs = [
   },
   {
     question: 'Pembayaran lewat apa?',
-    answer: 'Metode pembayaran bisa ditanyakan langsung melalui WhatsApp agar customer lebih mudah memilih.',
+    answer: 'Pembayaran tersedia melalui QRIS, DANA, GoPay, OVO, ShopeePay, BRI, dan BCA. Detail pembayaran akan dibantu admin lewat WhatsApp.',
   },
 ]
 
@@ -133,7 +195,31 @@ function ProductLogo({ src, alt, className = '' }) {
   )
 }
 
+function PaymentLogo({ src, fallbackSrc, alt }) {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className="h-full w-full object-contain"
+      referrerPolicy="no-referrer"
+      onError={(event) => {
+        event.currentTarget.onerror = null
+        event.currentTarget.src = fallbackSrc
+      }}
+    />
+  )
+}
+
 function App() {
+  const paymentScrollRef = useRef(null)
+
+  const scrollPayments = (direction) => {
+    paymentScrollRef.current?.scrollBy({
+      left: direction * 260,
+      behavior: 'smooth',
+    })
+  }
+
   return (
     <main className="min-h-screen overflow-hidden bg-[#F9E3EE] text-[#2B2B2B]">
       <section className="relative px-5 pb-10 pt-5 sm:px-8 lg:px-20">
@@ -352,10 +438,65 @@ function App() {
       </section>
 
       <section className="px-5 py-10 sm:px-8 lg:px-20">
+        <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-white/80 bg-white p-6 shadow-sm sm:p-8">
+          <div className="flex items-end justify-between gap-4">
+            <div>
+              <p className="text-sm font-black uppercase tracking-widest text-[#FF5A6B]">Metode Pembayaran</p>
+              <h2 className="mt-2 text-3xl font-black tracking-tight">Bisa Bayar Pakai Apa Saja?</h2>
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-gray-600">
+                Tersedia QRIS, e-wallet, dan transfer bank. Geser ke kanan atau kiri untuk melihat semua pilihan pembayaran.
+              </p>
+            </div>
+
+            <div className="hidden shrink-0 gap-2 sm:flex">
+              <button
+                type="button"
+                onClick={() => scrollPayments(-1)}
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#FFD4DC] bg-[#FFF7FA] text-lg font-black text-[#FF5A6B] shadow-sm active:scale-95"
+                aria-label="Geser pembayaran ke kiri"
+              >
+                ←
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollPayments(1)}
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-[#FF5A6B] text-lg font-black text-white shadow-sm active:scale-95"
+                aria-label="Geser pembayaran ke kanan"
+              >
+                →
+              </button>
+            </div>
+          </div>
+
+          <div
+            ref={paymentScrollRef}
+            className="no-scrollbar mt-6 flex snap-x gap-4 overflow-x-auto scroll-smooth pb-2"
+          >
+            {paymentMethods.map((payment) => (
+              <div
+                key={payment.name}
+                className="min-w-[170px] snap-start rounded-3xl border border-[#FFD4DC] bg-[#FFF7FA] p-4 shadow-sm sm:min-w-[190px]"
+              >
+                <div className="flex h-20 items-center justify-center rounded-2xl bg-white p-3 shadow-sm">
+                  <PaymentLogo src={payment.logo} fallbackSrc={payment.fallbackLogo} alt={payment.name} />
+                </div>
+                <p className="mt-4 text-base font-black text-[#2B2B2B]">{payment.name}</p>
+                <p className="mt-1 text-xs font-semibold text-gray-500">{payment.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-5 rounded-2xl bg-[#FFF7D6] px-4 py-3 text-center text-xs font-bold leading-relaxed text-[#8A7500]">
+            Detail nomor rekening atau QR pembayaran akan dikirim admin setelah customer memilih paket lewat WhatsApp.
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-10 sm:px-8 lg:px-20">
         <div className="mx-auto max-w-5xl rounded-[2rem] bg-gradient-to-r from-[#FF5A6B] via-[#FF7F8E] to-[#D8B000] p-7 text-center text-white shadow-xl shadow-[#FF5A6B]/20 sm:p-10">
           <h2 className="text-3xl font-black tracking-tight">Bingung pilih paket?</h2>
           <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed opacity-95">
-            Langsung chat admin CAKSTORE. Kamu bisa tanya harga, stok, durasi, dan rekomendasi layanan yang cocok.
+            Langsung chat admin CAKSTORE. Kamu bisa tanya harga, stok, durasi, metode pembayaran, dan rekomendasi layanan yang cocok.
           </p>
           <a
             href={createWhatsappLink('Halo kak, saya mau tanya-tanya dulu tentang layanan premium di CAKSTORE.')}
@@ -371,7 +512,10 @@ function App() {
         <h2 className="mt-3 text-xl font-black text-[#FF5A6B]">CAKSTORE</h2>
         <p className="mt-2 text-sm text-gray-600">Premium Digital Store — order mudah lewat WhatsApp.</p>
         <p className="mx-auto mt-3 max-w-xl text-[11px] leading-relaxed text-gray-400">
-          Semua logo dan merek dagang merupakan milik masing-masing pemilik brand. CAKSTORE bukan bagian dari Netflix, Vidio, Viu, Prime Video, Canva, Spotify, YouTube, CapCut, Disney+ Hotstar, WeTV, iQIYI, Bstation, atau brand terkait.
+          Semua logo dan merek dagang merupakan milik masing-masing pemilik brand. CAKSTORE bukan bagian dari Netflix, Vidio, Viu, Prime Video, Canva, Spotify, YouTube, CapCut, Disney+ Hotstar, WeTV, iQIYI, Bstation, QRIS, DANA, GoPay, OVO, ShopeePay, BRI, BCA, atau brand terkait.
+        </p>
+        <p className="mx-auto mt-2 max-w-xl text-[10px] leading-relaxed text-gray-400">
+          Logo pembayaran menggunakan file asli dari sumber resmi/Commons yang sudah disimpan di project, dengan fallback lokal jika ada masalah render.
         </p>
         <p className="mt-4 text-xs font-semibold text-gray-400">© 2026 CAKSTORE. All rights reserved.</p>
       </footer>

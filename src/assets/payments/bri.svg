@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100" role="img" aria-label="BRI">
+  <rect width="160" height="100" rx="24" fill="#ffffff"/>
+  <rect x="12" y="12" width="136" height="76" rx="22" fill="#005BAA"/>
+  <rect x="32" y="31" width="28" height="38" rx="6" fill="#ffffff"/>
+  <rect x="40" y="39" width="13" height="8" rx="2" fill="#005BAA"/>
+  <rect x="40" y="53" width="13" height="8" rx="2" fill="#005BAA"/>
+  <text x="104" y="62" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="900" fill="#ffffff">BRI</text>
+</svg>
