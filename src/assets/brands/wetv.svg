@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="WeTV">
+  <rect width="120" height="120" rx="26" fill="#fff"/>
+  <defs><linearGradient id="w" x1="0" x2="1"><stop stop-color="#17D36B"/><stop offset=".55" stop-color="#14B8FF"/><stop offset="1" stop-color="#FFDA35"/></linearGradient></defs>
+  <path d="M33 26l62 34-62 34z" fill="url(#w)"/>
+  <path d="M53 45l24 15-24 15z" fill="#fff"/>
+  <text x="60" y="105" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="900" fill="#222">WeTV</text>
+</svg>

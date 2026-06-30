@@ -1,6 +1,16 @@
 # CAKSTORE Landing Page
 
-Landing page React untuk CAKSTORE dengan tampilan mobile-first, warna pink cerah, dan tombol order ke WhatsApp.
+Landing page React + Vite + Tailwind CSS untuk CAKSTORE.
+
+## Isi update
+
+- Nomor WhatsApp: `6281455124049`
+- Logo CAKSTORE sudah dimasukkan
+- Warna disesuaikan dengan logo: pink muda, coral, dan kuning emas
+- Mobile-first untuk link bio TikTok
+- Tombol WhatsApp di hero, produk, CTA, dan tombol bawah mengambang
+- Card produk sudah memakai logo aplikasi lokal berbentuk SVG
+- `.gitignore` sudah disiapkan agar `node_modules`, `dist`, dan `.vercel` tidak ikut ke GitHub
 
 ## Cara menjalankan
 
@@ -9,36 +19,22 @@ npm install
 npm run dev
 ```
 
-Lalu buka alamat yang muncul di terminal, biasanya:
+Buka:
 
 ```txt
 http://localhost:5173
 ```
 
-## Cara build untuk deploy
+## Cara deploy/update ke GitHub dan Vercel
 
 ```bash
-npm run build
+git add .
+git commit -m "Update branding CAKSTORE"
+git push
 ```
 
-## Nomor WhatsApp
+Jika repository sudah terhubung ke Vercel, deploy akan berjalan otomatis.
 
-Nomor WhatsApp sudah diatur di file:
+## Catatan logo brand
 
-```txt
-src/App.jsx
-```
-
-Bagian:
-
-```js
-const whatsappNumber = "6282338184217";
-```
-
-## Deploy ke Vercel
-
-1. Upload project ke GitHub.
-2. Masuk ke Vercel.
-3. Import repository.
-4. Framework otomatis terdeteksi sebagai Vite.
-5. Klik Deploy.
+Logo/merek dagang aplikasi merupakan milik pemilik brand masing-masing. Gunakan brand asset resmi jika diperlukan untuk penggunaan komersial.

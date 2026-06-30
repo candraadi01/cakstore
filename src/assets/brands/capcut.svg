@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="CapCut">
+  <rect width="120" height="120" rx="26" fill="#fff"/>
+  <path d="M32 35h56L32 85h56" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M32 85h56L32 35h56" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Vidio">
+  <rect width="120" height="120" rx="26" fill="#fff"/>
+  <circle cx="60" cy="60" r="46" fill="#F51F58"/>
+  <text x="60" y="70" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="800" fill="#fff">vidio</text>
+</svg>
