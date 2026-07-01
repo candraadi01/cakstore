@@ -408,7 +408,7 @@ function App() {
             ['⚡', 'Proses Cepat', 'Order langsung dibantu admin.'],
             ['💬', 'Bisa Tanya Dulu', 'Customer bisa chat sebelum pesan.'],
             ['🎀', 'Banyak Pilihan', 'Streaming, musik, desain, editing.'],
-            ['📱', 'Mobile Friendly', 'Cocok untuk link bio TikTok.'],
+            ["💳", "Pembayaran Mudah", "QRIS, DANA, GoPay, OVO, ShopeePay, BRI, dan BCA."],
           ].map((item) => (
             <div key={item[1]} className="rounded-3xl border border-white/80 bg-white p-5 text-center shadow-sm">
               <p className="text-3xl">{item[0]}</p>
